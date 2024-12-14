@@ -1,18 +1,19 @@
 import dotenv from 'dotenv';
 dotenv.config();
+
 import { fileURLToPath } from 'url';
 import express from 'express';
 import cors from 'cors';
+import path, { dirname } from 'path';
+
+import { dbconnect } from './src/config/database.config.js';
 import foodRouter from './src/routers/food.router.js';
 import userRouter from './src/routers/user.router.js';
 import uploadRouter from './src/routers/upload.router.js';
-
-import { dbconnect } from './src/config/database.config.js';
-import path, { dirname } from 'path';
-import orderRouter from "./src/routers/order.router.js";
+import orderRouter from './src/routers/order.router.js';
 import loyaltyRouter from './src/routers/loyalty.router.js';
 
-
+// Database Connection
 dbconnect();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -21,16 +22,16 @@ const __dirname = dirname(__filename);
 const app = express();
 app.use(express.json());
 
-// Middleware for JSON parsing
-app.use(express.json());
-
+// Middleware for CORS
 app.use(
   cors({
     credentials: true,
-origin: [
+    origin: [
       'http://localhost:3000', // Development frontend
       'https://canteen-ordering-system-frontend.onrender.com', // Production frontend
     ],
+  })
+);
 
 // Routes
 app.use('/api/foods', foodRouter);
@@ -38,7 +39,6 @@ app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/upload', uploadRouter);
 app.use('/api/loyalty', loyaltyRouter);
-
 
 // Serve static files from 'public' folder
 const publicFolder = path.join(__dirname, 'public');
