@@ -200,6 +200,9 @@ npm start
 - Email: lillian3adunia@gmail.com
 - password: 12345
 
+## Hosting Link
+https://canteen-ordering-system-frontend.onrender.com/
+
 7. Enjoy the application!!
 
 #Screenshots of my API tests
