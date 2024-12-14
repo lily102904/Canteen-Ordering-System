@@ -1,0 +1,70 @@
+/* Loyalty.css */
+
+.loyalty-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1, h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .points-section {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .points {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2a9d8f;
+  }
+  
+  .rewards-section, .history-section {
+    margin: 20px 0;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .reward-item, .history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .redeem-button {
+    padding: 5px 10px;
+    background: #2a9d8f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .redeem-button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+  }
+  
+  .reward-info span {
+    margin: 0 5px;
+    color: #333;
+  }
+  
+  .history-item span {
+    margin: 0 5px;
+  }
+  

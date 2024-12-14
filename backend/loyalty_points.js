@@ -1,0 +1,69 @@
+/* global use, db */
+// MongoDB Playground
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+const database = 'lillian';
+const collection = 'loyalty_points';
+
+// The current database to use.
+use(database);
+
+// Create a new collection.
+db.createCollection(collection);
+db.createCollection('loyalty_points', {
+    validator: {
+      $jsonSchema: {
+        bsonType: 'object',
+        required: ['userId', 'points', 'lastUpdated'],
+        properties: {
+          userId: {
+            bsonType: 'string',
+            description: 'Unique identifier for the user',
+          },
+          points: {
+            bsonType: 'int',
+            minimum: 0,
+            description: 'Number of loyalty points the user has',
+          },
+          lastUpdated: {
+            bsonType: 'date',
+            description: 'Date when the loyalty points were last updated',
+          },
+        },
+      },
+    },
+    validationLevel: 'strict',
+  });
+  
+
+
+// The prototype form to create a collection:
+/* db.createCollection( <name>,
+  {
+    capped: <boolean>,
+    autoIndexId: <boolean>,
+    size: <number>,
+    max: <number>,
+    storageEngine: <document>,
+    validator: <document>,
+    validationLevel: <string>,
+    validationAction: <string>,
+    indexOptionDefaults: <document>,
+    viewOn: <string>,
+    pipeline: <pipeline>,
+    collation: <document>,
+    writeConcern: <document>,
+    timeseries: { // Added in MongoDB 5.0
+      timeField: <string>, // required for time series collections
+      metaField: <string>,
+      granularity: <string>,
+      bucketMaxSpanSeconds: <number>, // Added in MongoDB 6.3
+      bucketRoundingSeconds: <number>, // Added in MongoDB 6.3
+    },
+    expireAfterSeconds: <number>,
+    clusteredIndex: <document>, // Added in MongoDB 5.3
+  }
+)*/
+
+// More information on the `createCollection` command can be found at:
+// https://www.mongodb.com/docs/manual/reference/method/db.createCollection/
