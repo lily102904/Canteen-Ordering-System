@@ -196,7 +196,7 @@ npm run dev
 5. Run the frontend
 npm start
 
-#admin deets
+## Admin deets
 Email: lillian3adunia@gmail.com
 password: 12345
 
