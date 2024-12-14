@@ -197,8 +197,8 @@ npm run dev
 npm start
 
 ## Admin deets
-Email: lillian3adunia@gmail.com
-password: 12345
+- Email: lillian3adunia@gmail.com
+- password: 12345
 
 7. Enjoy the application!!
 
